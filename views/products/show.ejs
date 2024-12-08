@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detail Product</title>
+</head>
+<body>
+<h1><%= product.name %></h1>
+<a href="/products/<%= product._id %>/edit">Edit</a>
+<ul>
+    <li>Brand: <%= product.brand %></li>
+    <li>Warna: <%= product.color %></li>
+    <li>Harga: <%= product.price %></li>
+    <li>
+        Ukuran: <a href="/products?size=<%= product.size %>">
+            <%= product.size %>
+        </a>
+    </li>
+</ul>
+<a href="/products">Back</a>
+</body>
+</html>

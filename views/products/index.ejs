@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+</head>
+<body>
+<h1><%= size %> Products</h1>
+<a href="/products/create">Add Product</a>
+<br>
+<% if (size !== 'All'){ %>
+    <a href="/products">All Products</a>
+<% } %>
+<ul style="display: flex; flex-direction:column; gap: 10px">
+    <% for(let product of products){ %>
+        <li style="display: flex; gap: 10px">
+            <a href="/products/<%= product._id %>">
+                <%= product.name %> - <%= product.brand %>
+            </a>
+            <form action="/products/<%= product._id %>?_method=DELETE" method="post">
+                <button type="submit">Delete</button>
+            </form>
+
+        </li>
+    <% } %>
+</ul>
+</body>
+</html>
